@@ -1,4 +1,4 @@
-from guizero import App, Text, Box
+from guizero import App, Text
 app = App(layout="grid")
 #box = Box(app,layout="grid", width="fill", height="fill")
 red = Text(app, bg="red", grid=[5,0], text='red')

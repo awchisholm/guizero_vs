@@ -17,31 +17,33 @@ def match_emoji(matched):
         score.value = int(score.value) + 1
     else:
         result.value = "incorrect"
-        
+
     setup_round()
 
 def setup_round():
     # for each picture and button in the list assign an emoji to its image feature
-    for picture in pictures:
+    for p1 in pictures:
         # make the picture a random emoji
-        picture.image = emojis.pop()
+        p1.image = emojis.pop()
 
-    for button in buttons:
+    for b1 in buttons:
         # make the image feature of the PushButton a random emoji
-        button.image = emojis.pop()
+        b1.image = emojis.pop()
         # set the command to be called and pass False, as these emoji wont be the matching ones
-        button.update_command(match_emoji, [False])
+        b1.update_command(match_emoji, [False])
 
     # choose a new emoji
     matched_emoji = emojis.pop()
 
     # select a number at random
     random_picture = randint(0,8)
-    # change the image feature of the Picture with this index in the list of pictures to the new emoji
+    # change the image feature of the Picture with this index
+    # in the list of pictures to the new emoji
     pictures[random_picture].image = matched_emoji
 
     random_button = randint(0,8)
-    # change the image feature of the PushButton with this index in the list of buttons to the new emoji
+    # change the image feature of the PushButton with this index
+    # in the list of buttons to the new emoji
     buttons[random_button].image = matched_emoji
     # set the command to be called and pass True, as this is the matching emoji
     buttons[random_button].update_command(match_emoji, [True])
@@ -74,7 +76,7 @@ for x in range(0,3):
         # put the pictures and buttons into the lists
         picture = Picture(pictures_box, grid=[x,y])
         pictures.append(picture)
-        
+
         button = PushButton(buttons_box, grid=[x,y])
         buttons.append(button)
 

@@ -1,5 +1,5 @@
 import os
-from random import shuffle, sample
+from random import shuffle
 from guizero import App, Box, Picture
 # set the path to the emoji folder on your computer
 emojis_dir = "emojis"
@@ -22,10 +22,5 @@ for picture in pictures:
     # make the picture a random emoji
     picture.image = emojis.pop()
 
-# Alternative to pop()
-#sample_emojis = sample(emojis, 9)
-#for index in range(9):
-#    picture = pictures[index]
-#    picture.image = sample_emojis[index]
 
 app.display()
